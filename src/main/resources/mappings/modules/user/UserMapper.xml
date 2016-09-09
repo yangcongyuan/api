@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.user.UserDao" >
+	<insert id="addValicode">
+	insert into valicode (phone_mail, valicode, create_time)
+	values (#{phone_mail}, #{valicode}, #{create_time})
+	</insert>
+	
+	<delete id="delValicode">
+	delete from valicode where phone_mail = #{phone_mail}
+	</delete>
+	
+	<insert id="addUser" useGeneratedKeys="true" keyProperty="user_id">
+	insert into user (password, cellphone, send_email, send_phone, create_time, valid, flag_delete)
+	values (#{password}, #{cellphone}, 1, 1, #{create_time}, 1, 0)
+	</insert>
+	
+	<insert id="addPerson">
+	insert into person (user_id) values (#{user_id})
+	</insert>
+	
+	<insert id="addUserAddress">
+	insert into user_address (user_id) values (#{user_id})
+	</insert>
+	
+	<select id="queryValicode" resultType="string">
+	select valicode from valicode where phone_mail = #{phone_mail}
+	</select>
+	
+	<select id="queryCellphoneExist" resultType="int">
+	select count(*) from user where cellphone = #{cellphone}
+	</select>
+	
+	<select id="queryEmailExist" resultType="int">
+	select count(*) from user where email = #{email}
+	</select>
+	
+	<select id="queryPhoneEmailExist" resultType="int">
+	select count(*) from user where cellphone = #{phone_mail} or email = #{phone_mail}
+	</select>
+	
+	<select id="queryLoginnameExist" resultType="int">
+	select count(*) from user where login_name = #{login_name} and id != #{user_id}
+	</select>
+	
+	<select id="queryUserInfo" resultType="map">
+	select a.id user_id, a.login_name, a.user_name, a.email,
+	a.cellphone, a.send_email, a.send_phone, a.create_time,
+	a.valid, a.flag_delete, b.real_name, b.sex, date_format(b.birthday, '%Y-%m-%d') birthday,
+	b.certificate_no, b.head_img, c.province_id, 
+	c.city_id, c.county_id, c.address
+	from user a
+	join person b on a.id = b.user_id
+	join user_address c on a.id = c.user_id
+	where a.valid = 1 and a.flag_delete = 0
+	<if test="login_name != null and login_name != ''">
+	and (a.login_name = #{login_name} or a.email = #{login_name} or a.cellphone = #{login_name})
+	</if>
+	<if test="password != null and password != ''">
+	and a.password = #{password}
+	</if>
+	<if test="user_id != null and user_id != ''">
+	and a.id = #{user_id}
+	</if>
+	</select>
+	
+	<update id="updUser">
+	update user set login_name = #{login_name}, user_name = #{user_name}
+	where id = #{user_id}
+	</update>
+	
+	<update id="updPerson">
+	update person set real_name = #{real_name}, sex = #{sex}, birthday = #{birthday},
+	certificate_no = #{certificate_no}
+	where user_id = #{user_id}
+	</update>
+	
+	<update id="updUserAddress">
+	update user_address set province_id = #{province_id}, city_id = #{city_id}, 
+	county_id = #{county_id}, address = #{address}
+	where user_id = #{user_id}
+	</update>
+	
+	<update id="updHeadImg">
+	update person set head_img = #{head_img}
+	where user_id = #{user_id}
+	</update>
+	
+	<select id="valiPassword" resultType="int">
+	select count(*) from user where id = #{user_id} and password = #{password}
+	</select>
+	
+	<update id="updPassword">
+	update user set password = #{passwordNew} where id = #{user_id}
+	</update>
+	
+	<update id="updCellphone">
+	update user set cellphone = #{cellphone} where id = #{user_id}
+	</update>
+	
+	<update id="updEmail">
+	update user set email = #{email} where id = #{user_id}
+	</update>
+	
+	<update id="resetPwd">
+	update user set password = #{password} where cellphone = #{phone_mail} or email = #{phone_mail}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+
+
+

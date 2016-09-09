@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.apartment.seckill.ApartmentSeckillDao" >
+  <resultMap id="BaseResultMap" type="com.qzw.modules.model.apartment.seckill.ApartmentSeckill" >
+    <id column="apartment_id" property="apartmentId" jdbcType="INTEGER" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    apartment_id, start_time, end_time
+  </sql>
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from apartment_seckill
+    where apartment_id = #{apartmentId,jdbcType=INTEGER}
+  </select>
+  <!-- mybatis调用存储过程-->
+  <select id="killByProcedure" statementType="CALLABLE" >
+    call execute_apartment_seckill(
+    #{seckillId,jdbcType=BIGINT,mode=IN},
+    #{userId,jdbcType=BIGINT,mode=IN},
+    #{killTime,jdbcType=TIMESTAMP,mode=IN},
+    #{result,jdbcType=INTEGER,mode=OUT}
+    )
+  </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from apartment_seckill
+    where apartment_id = #{apartmentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qzw.modules.model.apartment.seckill.ApartmentSeckill" >
+    insert into apartment_seckill (apartment_id, start_time, end_time, 
+      places, places_man)
+    values (#{apartmentId,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{places,jdbcType=INTEGER}, #{placesMan,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qzw.modules.model.apartment.seckill.ApartmentSeckill" >
+    insert into apartment_seckill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="apartmentId != null" >
+        apartment_id,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="places != null" >
+        places,
+      </if>
+      <if test="placesMan != null" >
+        places_man,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="apartmentId != null" >
+        #{apartmentId,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="places != null" >
+        #{places,jdbcType=INTEGER},
+      </if>
+      <if test="placesMan != null" >
+        #{placesMan,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qzw.modules.model.apartment.seckill.ApartmentSeckill" >
+    update apartment_seckill
+    <set >
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="places != null" >
+        places = #{places,jdbcType=INTEGER},
+      </if>
+      <if test="placesMan != null" >
+        places_man = #{placesMan,jdbcType=INTEGER},
+      </if>
+    </set>
+    where apartment_id = #{apartmentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qzw.modules.model.apartment.seckill.ApartmentSeckill" >
+    update apartment_seckill
+    set start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      places = #{places,jdbcType=INTEGER},
+      places_man = #{placesMan,jdbcType=INTEGER}
+    where apartment_id = #{apartmentId,jdbcType=INTEGER}
+  </update>
+
+
+</mapper>

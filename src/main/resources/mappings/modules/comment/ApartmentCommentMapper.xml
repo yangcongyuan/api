@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.comment.ApartmentCommentDao" >
+  <resultMap id="BaseResultMap" type="com.qzw.modules.model.cemment.ApartmentComment" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="TOPIC_ID" property="topicId" jdbcType="VARCHAR" />
+    <result column="TOPIC_TYPE" property="topicType" jdbcType="VARCHAR" />
+    <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+    <result column="FROM_UID" property="fromUid" jdbcType="INTEGER" />
+    <result column="COMMENT_DATE" property="commentDate" jdbcType="TIMESTAMP" />
+    <result column="STATUS" property="status" jdbcType="BIT" />
+    <result column="AUDIT_ID" property="auditId" jdbcType="INTEGER" />
+    <result column="AUDIT_DATE" property="auditDate" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TOPIC_ID, TOPIC_TYPE, CONTENT, FROM_UID, COMMENT_DATE, STATUS, AUDIT_ID, AUDIT_DATE
+  </sql>
+
+  <insert id="insert" parameterType="com.qzw.modules.model.cemment.ApartmentComment" >
+    insert into apartment_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="topicId != null" >
+        TOPIC_ID,
+      </if>
+      <if test="topicType != null" >
+        TOPIC_TYPE,
+      </if>
+      <if test="content != null" >
+        CONTENT,
+      </if>
+      <if test="fromUid != null" >
+        FROM_UID,
+      </if>
+      <if test="commentDate != null" >
+        COMMENT_DATE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="auditId != null" >
+        AUDIT_ID,
+      </if>
+      <if test="auditDate != null" >
+        AUDIT_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="topicId != null" >
+        #{topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="topicType != null" >
+        #{topicType,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="fromUid != null" >
+        #{fromUid,jdbcType=INTEGER},
+      </if>
+      <if test="commentDate != null" >
+        #{commentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="auditId != null" >
+        #{auditId,jdbcType=INTEGER},
+      </if>
+      <if test="auditDate != null" >
+        #{auditDate,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="getList" parameterType="com.qzw.modules.webservice.comment.vo.ApartmentCommentRequestVo" resultType="com.qzw.modules.webservice.comment.vo.ApartmentCommentResponseVo">
+    SELECT ac.TOPIC_ID,ac.CONTENT,ac.COMMENT_DATE,u.user_name,p.head_img
+    FROM apartment a
+   /* LEFT JOIN*/
+    LEFT  JOIN apartment_comment ac ON a.apar_id=ac.TOPIC_ID
+    LEFT JOIN `user` u ON  ac.FROM_UID = u.ID
+    LEFT JOIN person p ON u.ID=p.user_id
+    WHERE ac.FROM_UID=#{fromUid,jdbcType=INTEGER}
+    ORDER BY ac.COMMENT_DATE DESC
+    limit #{currentPage,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}
+  </select>
+
+  <select id="countList" parameterType="com.qzw.modules.webservice.comment.vo.ApartmentCommentRequestVo" resultType="java.lang.Long">
+    SELECT COUNT(*)
+    FROM apartment a
+    LEFT  JOIN apartment_comment ac ON a.apar_id=ac.TOPIC_ID
+    LEFT JOIN `user` u ON  ac.FROM_UID = u.ID
+    LEFT JOIN person p ON u.ID=p.user_id
+    WHERE ac.FROM_UID=#{fromUid,jdbcType=INTEGER}
+  </select>
+
+</mapper>

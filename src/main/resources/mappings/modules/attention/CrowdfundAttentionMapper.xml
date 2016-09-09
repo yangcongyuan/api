@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.attention.CrowdfundAttentionDao" >
+  <resultMap id="BaseResultMap" type="com.qzw.modules.model.attention.CrowdfundAttention" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="ATTENTION_NO" property="attentionNo" jdbcType="INTEGER" />
+    <result column="ATTENTION_TYPE" property="attentionType" jdbcType="INTEGER" />
+    <result column="ATTENTION_TIME" property="attentionTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, USER_ID, ATTENTION_NO, ATTENTION_TYPE, ATTENTION_TIME
+  </sql>
+
+
+  <insert id="insert" parameterType="com.qzw.modules.model.attention.CrowdfundAttention">
+    insert into crowdfund_attention
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="attentionNo != null" >
+        ATTENTION_NO,
+      </if>
+      <if test="attentionTime != null" >
+        ATTENTION_TIME,
+      </if>
+      <if test="attentionType != null" >
+        ATTENTION_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="attentionNo != null" >
+        #{attentionNo,jdbcType=INTEGER},
+      </if>
+      <if test="attentionTime != null" >
+        #{attentionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attentionType != null" >
+        #{attentionType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="getList" parameterType="com.qzw.modules.webservice.attention.vo.CrowdfundAttentionRequestVo" resultType="com.qzw.modules.webservice.attention.vo.CrowdfundAttentionResponseVo">
+    SELECT ca.id, a.list_img,a.building_no,a.unit_no,a.floor_no,a.apar_id,
+            a.apar_no,a.area,a.apar_house_type_id,a.unit_price,a.turned,a.decorate,
+            ca.ATTENTION_NO,a.sell_price,lr.area AS area,lr.room AS room,lr.hall AS hall,
+            lr.lr_desc AS lrDesc
+    FROM crowdfund_attention ca
+    LEFT JOIN apartment a ON ca.ATTENTION_NO = a.APAR_ID
+    LEFT JOIN layout_recommend lr ON lr.lr_id=a.area_id
+    WHERE ca.user_id = #{userId,jdbcType=INTEGER}
+    AND ca.ATTENTION_TYPE=0
+    ORDER BY ca.ATTENTION_TIME DESC
+    limit #{currentPage,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}
+  </select>
+
+  <select id="countList" parameterType="com.qzw.modules.webservice.attention.vo.CrowdfundAttentionRequestVo" resultType="java.lang.Long">
+    SELECT COUNT(*)
+    FROM crowdfund_attention ca
+    LEFT JOIN apartment a ON ca.ATTENTION_NO = a.APAR_ID
+    LEFT JOIN layout_recommend lr ON lr.lr_id=a.area_id
+    WHERE ca.user_id = #{userId,jdbcType=INTEGER}
+    AND ca.ATTENTION_TYPE=0
+  </select>
+
+  <select id="countNumber" parameterType="java.lang.Integer" resultType="java.lang.Long">
+    SELECT COUNT(*)
+    FROM crowdfund_attention
+    WHERE ATTENTION_NO = #{attentionNo,jdbcType=INTEGER}
+    AND ATTENTION_TYPE=0
+  </select>
+
+  <update id="updateById" parameterType="com.qzw.modules.model.attention.CrowdfundAttention">
+    UPDATE crowdfund_attention
+    set ATTENTION_TYPE = #{attentionType,jdbcType=INTEGER}
+    WHERE USER_ID = #{userId,jdbcType=INTEGER}
+    AND ATTENTION_NO=#{attentionNo,jdbcType=INTEGER}
+  </update>
+
+  <select id="checkAttionByUserId" resultType="java.lang.Integer">
+    SELECT COUNT(*)
+    FROM crowdfund_attention
+    WHERE ATTENTION_TYPE = 0 and USER_ID = #{userId,jdbcType=BIGINT} and ATTENTION_NO = #{aparId,jdbcType=INTEGER}
+  </select>
+
+  <select id="select" parameterType="com.qzw.modules.webservice.attention.vo.CrowdfundAttentionRequestVo" resultType="com.qzw.modules.webservice.attention.vo.CrowdfundAttentionResponseVo">
+      SELECT ATTENTION_TYPE
+      FROM crowdfund_attention
+      WHERE USER_ID = #{userId,jdbcType=INTEGER}
+      AND ATTENTION_NO=#{attentionNo,jdbcType=INTEGER}
+  </select>
+
+</mapper>

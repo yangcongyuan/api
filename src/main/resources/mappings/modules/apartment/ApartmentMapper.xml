@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.apartment.ApartmentDao" >
+  <resultMap id="BaseResultMap" type="com.qzw.modules.model.apartment.Apartment" >
+    <id column="apar_id" property="aparId" jdbcType="INTEGER" />
+    <result column="apar_name" property="aparName" jdbcType="VARCHAR" />
+    <result column="comm_id" property="commId" jdbcType="INTEGER" />
+    <result column="building_no" property="buildingNo" jdbcType="INTEGER" />
+    <result column="unit_no" property="unitNo" jdbcType="INTEGER" />
+    <result column="floor_no" property="floorNo" jdbcType="INTEGER" />
+    <result column="apar_no" property="aparNo" jdbcType="INTEGER" />
+    <result column="toilet" property="toilet" jdbcType="INTEGER" />
+    <result column="floor_num" property="floorNum" jdbcType="INTEGER" />
+    <result column="turned" property="turned" jdbcType="VARCHAR" />
+    <result column="apar_type" property="aparType" jdbcType="VARCHAR" />
+    <result column="decorate" property="decorate" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="apar_status" property="aparStatus" jdbcType="VARCHAR" />
+    <result column="sell_price" property="sellPrice" jdbcType="INTEGER" />
+    <result column="deal_price" property="dealPrice" jdbcType="INTEGER" />
+    <result column="transfer_price" property="transferPrice" jdbcType="INTEGER" />
+    <result column="open_day" property="openDay" jdbcType="TIMESTAMP" />
+    <result column="net_day" property="netDay" jdbcType="TIMESTAMP" />
+    <result column="net_day7" property="netDay7" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="flag_delete" property="flagDelete" jdbcType="BIT" />
+    <result column="layout_id" property="layoutId" jdbcType="INTEGER" />
+    <result column="model_id" property="modelId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a.apar_id, a.apar_name, a.comm_id,a.comm_id,a.layout_id,a.envi_id, a.building_no, a.unit_no, a.floor_no, a.apar_no, a.area,
+      a.floor_num, a.turned, a.year,a.unit_price, a.decorate, a.user_id, a.apar_status, a.sell_price,
+    a.deal_price, a.transfer_price, a.open_day, a.net_day, a.net_day7, a.create_time, a.flag_delete,
+    a.layout_id, a.model_id,ase.start_time,ase.end_time,aht.room as room,aht.hall as hall,`at`.value as aparType
+  </sql>
+  <sql id="Column_List" >
+      a.apar_id, a.apar_name,a.area,ase.start_time as startTime,ase.end_time as endTime,aht.room as room,aht.hall as hall,`at`.value as aparType,aht.toilet AS toilet
+  </sql>
+
+  <select id="getApartmentList" resultType="com.qzw.modules.webservice.apartment.vo.ApartmentListVo" parameterType="com.qzw.modules.webservice.apartment.vo.ApartmentSearchVo">
+    SELECT
+    a.apar_id,
+    a.apar_name,
+    a.area,
+    a.list_img,
+    a.sell_price,
+    ase.start_time as startTime,
+    ase.end_time as endTime,
+    aht.room,
+    aht.hall,
+    `at`.value as aparType,
+    aht.toilet
+    FROM
+    apartment a LEFT JOIN apartment_seckill ase ON a.apar_id = ase.`apartment_id`
+    LEFT JOIN  apartment_type `at` ON a.apar_type_id = `at`.id
+    LEFT JOIN apartment_house_type aht  ON a.apar_house_type_id = aht.id
+    WHERE
+    a.flag_delete = 0 and apar_status = 2
+    <if test = "searchText != null">
+     and a.apar_name like #{searchText,jdbcType=VARCHAR}
+    </if>
+    <if test = "type != null">
+      and a.apar_type_id = #{type,jdbcType=INTEGER}
+    </if>
+    <if test = "houseType != null">
+      and  a.apar_house_type_id = #{houseType,jdbcType=INTEGER}
+    </if>
+    <if test = "area != null">
+      and  a.area_id = #{area,jdbcType=INTEGER}
+    </if>
+    order by a.apar_id desc
+    limit #{currentPage,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}
+
+  </select>
+
+  <select id="countApartmentList" resultType="java.lang.Long" parameterType="com.qzw.modules.webservice.apartment.vo.ApartmentSearchVo">
+    select count(*)
+    FROM
+    apartment a LEFT JOIN apartment_seckill ase ON a.apar_id = ase.`apartment_id`
+    LEFT JOIN  apartment_type `at` ON a.apar_type_id = `at`.id
+    LEFT JOIN apartment_house_type aht  ON a.apar_house_type_id = aht.id
+    WHERE
+    a.flag_delete = 0 and apar_status = 2
+    <if test = "searchText != null">
+      and a.apar_name like #{searchText,jdbcType=VARCHAR}
+    </if>
+    <if test = "type != null">
+      and a.apar_type_id = #{type,jdbcType=INTEGER}
+    </if>
+    <if test = "houseType != null">
+      and  a.apar_house_type_id = #{houseType,jdbcType=INTEGER}
+    </if>
+    <if test = "area != null">
+      and  a.area_id = #{area,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <select id="getBuyApartmentList" resultType="com.qzw.modules.webservice.apartment.vo.ApartmentListVo" parameterType="com.qzw.modules.webservice.apartment.vo.ApartmentSearchVo">
+    SELECT
+    a.apar_id,
+    a.apar_name,
+    a.area,
+    a.building_no,
+    a.unit_no,
+    a.floor_no,
+    a.apar_no,
+    a.list_img,
+    a.sell_price,
+    aht.room,
+    aht.hall,
+    `at`.value AS aparType,
+    aht.toilet,
+    a.decorate,
+    (SELECT COUNT(*) FROM crowdfund_attention WHERE attention_no = 1) AS attentionCount,
+    ss.`state`,
+    ss.`create_time`
+    FROM
+    seckill_success ss LEFT JOIN apartment a ON ss.`apartment_id` = a.`apar_id`
+    LEFT JOIN apartment_seckill ase ON a.apar_id = ase.`apartment_id`
+    LEFT JOIN  apartment_type `at` ON a.apar_type_id = `at`.id
+    LEFT JOIN apartment_house_type aht  ON a.apar_house_type_id = aht.id
+    WHERE
+    a.flag_delete = 0 and apar_status = 0
+    and ss.`user_id` = #{userId,jdbcType=INTEGER}
+    order by a.apar_id
+    limit #{currentPage,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}
+  </select>
+
+  <select id="countBuyApartmentList" resultType="java.lang.Long" parameterType="com.qzw.modules.webservice.apartment.vo.ApartmentSearchVo">
+    SELECT
+    count(*)
+    FROM
+    seckill_success ss LEFT JOIN apartment a ON ss.`apartment_id` = a.`apar_id`
+    LEFT JOIN apartment_seckill ase ON a.apar_id = ase.`apartment_id`
+    LEFT JOIN  apartment_type `at` ON a.apar_type_id = `at`.id
+    LEFT JOIN apartment_house_type aht  ON a.apar_house_type_id = aht.id
+    WHERE
+    a.flag_delete = 0 and apar_status = 0
+    and ss.`user_id` = #{userId,jdbcType=INTEGER}
+  </select>
+
+  <select id="getDetailById" resultType="com.qzw.modules.webservice.apartment.vo.ApartmentDetailVo" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    FROM
+    apartment a LEFT JOIN  apartment_type `at` ON a.`apar_type_id` = at.`id`
+    LEFT JOIN apartment_house_type aht ON a.`apar_house_type_id` = aht.`id`
+    LEFT JOIN apartment_seckill ase  ON a.`apar_id` = ase.`apartment_id`
+    WHERE apar_id = #{aparId,jdbcType=INTEGER}
+  </select>
+
+</mapper>

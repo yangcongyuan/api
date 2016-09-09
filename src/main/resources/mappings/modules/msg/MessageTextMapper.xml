@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.msg.MessageTextDao" >
+  <resultMap id="BaseResultMap" type="com.qzw.modules.model.msg.MessageText" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="SEND_ID" property="sendId" jdbcType="INTEGER" />
+    <result column="MESSAGE" property="message" jdbcType="VARCHAR" />
+    <result column="MESSAGE_TYPE" property="messageType" jdbcType="INTEGER" />
+    <result column="POST_DATE" property="postDate" jdbcType="TIMESTAMP" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="GROUP_ID" property="groupId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, SEND_ID, MESSAGE, MESSAGE_TYPE, POST_DATE, TITLE, GROUP_ID
+  </sql>
+
+  <insert id="insert" parameterType="com.qzw.modules.model.msg.MessageText" useGeneratedKeys="true" keyProperty="id">
+    insert into messgage_text
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="sendId != null" >
+        SEND_ID,
+      </if>
+      <if test="message != null" >
+        MESSAGE,
+      </if>
+      <if test="messageType != null" >
+        MESSAGE_TYPE,
+      </if>
+      <if test="postDate != null" >
+        POST_DATE,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="groupId != null" >
+        GROUP_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sendId != null" >
+        #{sendId,jdbcType=INTEGER},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null" >
+        #{messageType,jdbcType=INTEGER},
+      </if>
+      <if test="postDate != null" >
+        #{postDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="statueList" parameterType="com.qzw.modules.webservice.msg.vo.MessageRequestVo" resultType="com.qzw.modules.webservice.msg.vo.MessageResponseVo">
+    SELECT m.ID, m.REC_ID, m.MESSAGE_ID, m.STATUE,mt.MESSAGE,mt.POST_DATE,mt.TITLE
+    FROM message m
+    LEFT JOIN messgage_text mt ON m.MESSAGE_ID=mt.ID
+    LEFT JOIN `user` u ON mt.GROUP_ID=u.ID
+    WHERE m.`REC_ID`=#{groupId,jdbcType=INTEGER}
+    AND m.STATUE=#{statue,jdbcType=INTEGER}
+    AND STATUE != 2
+    ORDER BY mt.POST_DATE DESC
+    limit #{currentPage,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}
+  </select>
+
+  <select id="countStatue" parameterType="com.qzw.modules.webservice.msg.vo.MessageRequestVo" resultType="java.lang.Long">
+    SELECT COUNT(*)
+    FROM message m
+    LEFT JOIN messgage_text mt ON m.MESSAGE_ID=mt.ID
+    LEFT JOIN `user` u ON mt.GROUP_ID=u.ID
+    WHERE m.`REC_ID`=#{groupId,jdbcType=INTEGER}
+    AND m.STATUE=#{statue,jdbcType=INTEGER}
+    AND m.STATUE != 2
+  </select>
+
+  <delete id="deleteById" parameterType="com.qzw.modules.model.msg.MessageText">
+    DELETE FROM messgage_text
+    WHERE ID=#{id,jdbcType=INTEGER}
+  </delete>
+
+
+</mapper>

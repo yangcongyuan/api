@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.help.HelpDao" >
+	<select id="queryQuestionTypeSel" resultType="map">
+	select type_id, type_name
+	from question_type 
+	where flag_delete = 0
+	and valid = 1
+	order by sort asc
+	</select>
+	
+	<select id="queryQuestion" resultType="map">
+	select a.ques_id, a.type_id, a.question, a.answer, a.valid, 
+	a.flag_delete, a.create_time, b.type_name
+	from question a
+	left join question_type b on a.type_id = b.type_id
+	where a.flag_delete = 0
+	and a.valid = 1
+	and a.type_id = #{type_id}
+	order by a.ques_id desc
+	</select>
+	
+	<select id="queryQuestion10" resultType="map">
+	select a.ques_id, a.type_id, a.question, a.answer, a.valid, 
+	a.flag_delete, a.create_time, b.type_name
+	from question a
+	left join question_type b on a.type_id = b.type_id
+	where a.flag_delete = 0
+	and a.valid = 1
+	order by a.ques_id desc
+	limit 10
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+

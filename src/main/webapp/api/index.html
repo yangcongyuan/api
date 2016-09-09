@@ -1,0 +1,2603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接口文档</title>
+    <link rel="stylesheet" href="uikit.css">
+    <script src="/qzw/api/jquery.js"></script>
+</head>
+<style>
+    body, html {
+        font-size: 20px !important;
+        color: #fff;
+    }
+
+    .content {
+        width: 800px;
+        margin: 100px auto;
+    }
+
+    .title_2 {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: bold;
+        color: #000;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        display: inline;
+        word-wrap: break-word;
+    }
+
+    .bedeckBox {
+        border: 1px solid #dedede;
+        padding: 10px;
+        background: #66c9c6;
+    }
+
+    .typeP {
+        background: #7771A5;
+        color: #fff;
+        padding: 4px;
+        border-radius: 5px;
+    }
+
+    .typeG {
+        background: #71A581;
+        color: #fff;
+        padding: 4px;
+        border-radius: 5px;
+    }
+
+    .data {
+
+    }
+
+    h1 {
+        font-size: 20px;
+        line-height: normal;
+    }
+
+    h1:hover {
+        cursor: pointer;
+    }
+
+    .tabel {
+        display: none;
+    }
+</style>
+<body>
+
+<div class="content">
+    <!--<h1>http://123.56.205.77:9082/fengyu2/rest</h1>-->
+    <!--获取房源搜索条件 -->
+    <div class="data">
+        <h1 class="jkname">接口名称:获取房源搜索条件</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/apartment/search/options/{commId}</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>{commId}</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>楼盘编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>success</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>boolean</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>true/false</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>type</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>list</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房屋类型</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>type["id"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房屋类型编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>type["value"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房屋类型值</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>houseType</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>户型</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>houseType["id"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>户型编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>houseType["value"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>户型值</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>area</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>list</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>面积</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>area["id"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>面积编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>area["value"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>面积值</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--获取购买房源列表 -->
+    <div class="data">
+        <h1 class="jkname">接口名称:获取购买房源列表</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/apartment/apartment//buy/list</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>currentPage</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>开始页</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>pageSize</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>显示条数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>success</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>boolean</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>true/false</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>count</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>总条数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>list</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源列表</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["aparId"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["attentionCount"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>关注总数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["buildingNo"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>楼号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["unitNo"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>单元号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["floorNo"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>楼层号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["aparNo"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房间号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["state"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>状态  - 1 无效   0 成功  1 已付款</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["createTime"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Date</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>抢购日期</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["aparName"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源名称</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["aparType"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源类型</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["area"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源面积</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["room"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源室数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["hall"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源厅数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["toilet"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源卫数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["now"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>现在时间</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["startTime"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>date</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>开始时间</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["endTime"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>date</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>结束时间</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--获取房源列表 -->
+    <div class="data">
+        <h1 class="jkname">接口名称:获取房源列表</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/apartment/apartment/list</p>
+                    <p class="typeP uk-float-right">get</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>searchText</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>搜索提交，匹配楼盘标题</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>type</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房屋类型编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>houseType</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房屋户型编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>area</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房屋面积编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>currentPage</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>开始页</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>pageSize</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>显示条数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>success</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>boolean</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>true/false</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>count</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>总条数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>list</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源列表</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["aparId"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["aparName"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源名称</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["aparType"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源类型</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["area"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源面积</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["room"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源室数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["hall"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源厅数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["toilet"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源卫数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["now"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>现在时间</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["startTime"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>date</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>开始时间</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>list["endTime"]</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>date</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>结束时间</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--获取项目详情-->
+    <div class="data">
+        <h1 class="jkname">接口名称:获取项目详情</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/apartment/{aparId}/detail</p>
+                    <p class="typeP uk-float-right">get</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>{aparId}</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>编号</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>success</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>boolean</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>true/false</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>aparId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房编号</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>aparName</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房名称</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>userId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>用户编号</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>commId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>楼盘编号</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>sellPrice</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>售价</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>aparHouseType</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房屋类型</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>area</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房屋面积</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>buildingNo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>楼号</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>unitNo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>单元号</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>floorNo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>楼层号</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>aparNo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房间号</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>floorNum</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>一共多少层</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>turned</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>朝向   朝向 A东B南C西D北E南北F东西G东南H西南I东北J西北</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>startTime</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Date</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>抢购开始时间</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>endTime</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Date</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>抢购结束时间</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>year</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>int</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>年代</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>unitPrice</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>单价</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>layout.layoutName</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>户型图名称</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>layout.layoutPic1</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>户型图1</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>layout.layoutPic2</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>户型图2</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>layout.layoutPic3</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>户型图3</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>layout.layoutPic4</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>户型图4</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>layout.layoutPic5</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>户型图5</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>model.modelName</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>样板名称</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>model.modelPic1</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>样板图1</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>model.modelPic2</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>样板图2</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>model.modelPic3</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>样板图3</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>model.modelPic4</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>样板图4</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>model.modelPic5</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>样板图5</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>environment.enviName</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>环境图名称</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>environment.enviPic1</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>环境图1</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>environment.enviPic2</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>环境图2</p>
+                        </div>
+
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>environment.enviPic3</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>环境图3</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>environment.enviPic4</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>环境图4</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>environment.enviPic5</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>环境图5</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                    {
+                    date: {
+                    aparHouseType: "一室一厅",
+                    aparId: 1,
+                    aparName: "棋子湾一号别墅",
+                    aparNo: 404,
+                    area: "500",
+                    buildingNo: 6,
+                    commId: 1,
+                    endTime: 1472636413000,
+                    environment: {
+                    commId: 1,
+                    createTime: 1470791769000,
+                    enviId: 1,
+                    enviName: "一号环境图",
+                    enviPic1: "一号环境图1",
+                    enviPic2: "一号环境图2",
+                    enviPic3: "一号环境图3",
+                    enviPic4: "一号环境图4",
+                    enviPic5: "一号环境图5",
+                    flagDelete: false
+                    },
+                    floorNo: 4,
+                    floorNum: 36,
+                    layout: {
+                    layoutId: 1,
+                    layoutName: "此时",
+                    layoutPic1: "111",
+                    layoutPic2: "222",
+                    layoutPic3: "333"
+                    },
+                    model: {
+                    createTime: 1470791723000,
+                    flagDelete: false,
+                    modelId: 1,
+                    modelName: "一号户型图",
+                    modelPic1: "一号户型图1",
+                    modelPic2: "一号户型图2",
+                    modelPic3: "一号户型图3",
+                    modelPic4: "一号户型图4",
+                    modelPic5: "一号户型图5"
+                    },
+                    sellPrice: 8900000,
+                    startTime: 1470110248000,
+                    unitNo: 1,
+                    userId: 1
+                    },
+                    success: true
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--获取系统时间-->
+    <div class="data">
+        <h1 class="jkname">接口名称:获取系统时间</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/apartment/seckill/time/now</p>
+                    <p class="typeP uk-float-right">get</p>
+                </div>
+            </div>
+            <div class="sccs">
+            <div class="fhcs">
+                <div class="uk-grid uk-grid-collapse bedeckBox">
+                    <div class="uk-width-100 bedeck">
+                        <label for="" style="line-height:28px">返回参数</label>
+                    </div>
+                </div>
+                <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                    <div class="uk-width-1-3 bedeck">
+                        <label for="" style="line-height:28px">参数名称：</label>
+                        <p>success</p>
+                    </div>
+                    <div class="uk-width-1-3 bedeck">
+                        <label for="" style="line-height:28px">类型：</label>
+                        <p>boolean</p>
+                    </div>
+                    <div class="uk-width-1-3 bedeck">
+                        <label for="" style="line-height:28px">备注：</label>
+                        <p>true/false</p>
+                    </div>
+                </div>
+                <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                    <div class="uk-width-1-3 bedeck">
+                        <label for="" style="line-height:28px">参数名称：</label>
+                        <p>date</p>
+                    </div>
+                    <div class="uk-width-1-3 bedeck">
+                        <label for="" style="line-height:28px">类型：</label>
+                        <p>date</p>
+                    </div>
+                    <div class="uk-width-1-3 bedeck">
+                        <label for="" style="line-height:28px">备注：</label>
+                        <p>系统时间</p>
+                    </div>
+                </div>
+            </div>
+            <p style="color:#000;">
+            </p>
+        </div>
+    </div>
+</div>
+    <!--获取秒杀地址 -->
+    <div class="data">
+        <h1 class="jkname">接口名称:获取秒杀地址</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/apartment/seckill/{seckillId}/exposer</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>{seckillId}</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>抢购编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>success</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>boolean</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>true/false</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>exposed</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>boolean</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>是否开启抢购</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>md5</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>抢购请求MD5码，防止直接访问url</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>seckillId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>抢购编号</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>now</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>当前时间</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>start</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>开始时间</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>end</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>结束时间</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--开始抢购 -->
+    <div class="data">
+        <h1 class="jkname">接口名称:开始抢购</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/apartment/{seckillId}/{md5}/execution</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>{seckillId}</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>抢购编号</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>{md5}</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>抢购的MD5码</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>success</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>boolean</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>true/false</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>seckillId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>抢购编号</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>state</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>int</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>
+                                抢购状态
+                                1,
+                                0,
+                                -1,
+                                -2,
+                                -3
+                            </p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>stateInfo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>int</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>
+                                抢购状态
+                               &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                ("秒杀成功")
+                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                ("秒杀结束")
+                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                ("重复秒杀")
+                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                ("系统异常")
+                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                ("数据篡改")
+                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+        </div>
+        <!--<h3>error: function(request,status,message){ //若服务器处理失败后回调函数，```errrorText[0]["message"]```是返回的错误信息</h3>-->
+        <!--<h3>console.log("this is error! request:"+request+",status:"+status+",message:"+message);</h3>-->
+        <!--<h2>console.log(request.responseText);</h2>-->
+        <!--<h2>var errrorText = request.responseText;</h2>-->
+        <!--<h2>var errrorText = eval('(' + errrorText + ')');</h2>-->
+        <!--<h2>console.log(errrorText[0]["message"]);</h2>-->
+        <!--<h2>}</h2>-->
+
+
+    <!--获取新闻列表-->
+    <div class="data">
+        <h1 class="jkname">接口名称:获取新闻列表</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/news/newsList</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>publish</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Boolean</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>0 未发布  1 已发布</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>currentPage</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>开始页</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>pageSize</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>每页的条数</p>
+                        </div>
+                    </div>
+
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>title</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>标题</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>newsData</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>发布日期</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>detail</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>内容</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--获取新闻详细信息-->
+    <div class="data">
+        <h1 class="jkname">接口名称:获取新闻详细信息</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/news/selectId</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>id</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>通过id查询</p>
+                        </div>
+                    </div>
+
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>title</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>标题</p>
+                        </div>
+                    </div>
+
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>detail</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>内容</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>publishTimeString</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>当前时间</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--添加站内信-->
+    <div class="data">
+        <h1 class="jkname">接口名称:添加站内信</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/message/insert</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>sendId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>发送者编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>message</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>站内信的内容</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>title</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>消息标题</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>recId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>接受者编号</p>
+                        </div>
+                    </div>
+
+
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--未读,已读,屏蔽站内信 -->
+    <div class="data">
+        <h1 class="jkname">接口名称:未读,已读,屏蔽站内信</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/message/updateById</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>id</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>通过id删除</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>statue</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>0 未读，1已读，2屏蔽</p>
+                        </div>
+                    </div>
+
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--删除站内信 -->
+    <div class="data">
+        <h1 class="jkname">接口名称:删除站内信</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/message/deleteById</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>messageId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>站内信编号</p>
+                        </div>
+                    </div>
+
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--获取站内信列表-->
+    <div class="data">
+        <h1 class="jkname">接口名称:获取站内信列表</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/message/statueList</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>groupId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>用户ID</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>statue</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>站内信状态：0 未读，1已读，2删除，3屏蔽</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>currentPage</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>开始页</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>pageSize</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>每页的条数</p>
+                        </div>
+                    </div>
+
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>title</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>站内信标题</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>messageData</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>站内信发送时间</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>message</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>站内信内容</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--添加关注-->
+    <div class="data">
+        <h1 class="jkname">接口名称:添加关注</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/attention/insertAttention</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>userId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>用户编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>attentionNo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>关注的编号</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--取消关注-->
+    <div class="data">
+        <h1 class="jkname">接口名称:取消关注</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/attention/updateById</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>attentionNo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源ID</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>userId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>用户编号/p>
+                        </div>
+                    </div>
+
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--获取我关注的列表-->
+    <div class="data">
+        <h1 class="jkname">接口名称:获取我关注的列表</h1>
+        <div class="tabel" style="padding-bottom:20px;">
+            <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-right:40px;">
+                <div class="uk-width-100 bedeck">
+                    <label for="" style="line-height:28px">接口地址：</label>
+                    <p>/attention/getList</p>
+                    <p class="typeP uk-float-right">post</p>
+                </div>
+            </div>
+            <div class="sccs">
+                <div class="fhcs">
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">上传参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>userId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>用户编号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>currentPage</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>开始页</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>pageSize</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>每页的条数</p>
+                        </div>
+                    </div>
+
+                    <div class="uk-grid uk-grid-collapse bedeckBox">
+                        <div class="uk-width-100 bedeck">
+                            <label for="" style="line-height:28px">返回参数</label>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>listImg</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>列表图片</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>unitNo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>单元号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>buildingNo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>楼号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>floorNo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>楼层号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>aparNo</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房间号</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>sellPrice</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>售价</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>number</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Long</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>关注的人数</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>aparId</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>Integer</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>房源编号</p>
+                        </div>
+                    </div>
+
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>decorate</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>装修情况：A毛坯B简单装修C中等装修D精装修E豪华装修</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>area</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>建筑面积</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>room</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>几室</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse bedeckBox" style="padding-left:50px">
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">参数名称：</label>
+                            <p>hall</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">类型：</label>
+                            <p>String</p>
+                        </div>
+                        <div class="uk-width-1-3 bedeck">
+                            <label for="" style="line-height:28px">备注：</label>
+                            <p>几厅</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#000;">
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $(".jkname").click(function () {
+            if ($(this).siblings(".tabel").css("display") == "block") {
+                $(this).siblings(".tabel").slideUp();
+                return;
+            }
+            ;
+            $(this).siblings(".tabel").slideDown();
+        });
+    });
+</script>
+</html>

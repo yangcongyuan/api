@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.msg.MessageDao" >
+  <resultMap id="BaseResultMap" type="com.qzw.modules.model.msg.Message" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="REC_ID" property="recId" jdbcType="INTEGER" />
+    <result column="MESSAGE_ID" property="messageId" jdbcType="INTEGER" />
+    <result column="STATUE" property="statue" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, REC_ID, MESSAGE_ID, STATUE
+  </sql>
+
+  <insert id="insert" parameterType="com.qzw.modules.model.msg.Message" >
+    insert into message
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="recId != null" >
+        REC_ID,
+      </if>
+      <if test="messageId != null" >
+        MESSAGE_ID,
+      </if>
+      <if test="statue != null" >
+        STATUE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="recId != null" >
+        #{recId,jdbcType=INTEGER},
+      </if>
+      <if test="messageId != null" >
+        #{messageId,jdbcType=INTEGER},
+      </if>
+      <if test="statue != null" >
+        #{statue,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateById" parameterType="com.qzw.modules.model.msg.Message">
+    UPDATE message
+    SET STATUE = #{statue,jdbcType=INTEGER}
+    WHERE ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteById" parameterType="com.qzw.modules.model.msg.Message">
+    DELETE FROM message
+    WHERE MESSAGE_ID=#{messageId,jdbcType=INTEGER}
+  </delete>
+
+</mapper>

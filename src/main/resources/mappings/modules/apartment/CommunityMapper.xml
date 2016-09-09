@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.apartment.CommunityDao" >
+  <resultMap id="BaseResultMap" type="com.qzw.modules.model.apartment.Community" >
+    <id column="comm_id" property="commId" jdbcType="INTEGER" />
+    <result column="comm_name" property="commName" jdbcType="VARCHAR" />
+    <result column="comm_address" property="commAddress" jdbcType="VARCHAR" />
+    <result column="comm_desc" property="commDesc" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="flag_delete" property="flagDelete" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    comm_id, comm_name, comm_address, comm_desc, create_time, flag_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from community
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from community
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qzw.modules.model.apartment.Community" >
+    insert into community (comm_id, comm_name, comm_address, 
+      comm_desc, create_time, flag_delete
+      )
+    values (#{commId,jdbcType=INTEGER}, #{commName,jdbcType=VARCHAR}, #{commAddress,jdbcType=VARCHAR}, 
+      #{commDesc,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{flagDelete,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qzw.modules.model.apartment.Community" >
+    insert into community
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commId != null" >
+        comm_id,
+      </if>
+      <if test="commName != null" >
+        comm_name,
+      </if>
+      <if test="commAddress != null" >
+        comm_address,
+      </if>
+      <if test="commDesc != null" >
+        comm_desc,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="flagDelete != null" >
+        flag_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commId != null" >
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="commName != null" >
+        #{commName,jdbcType=VARCHAR},
+      </if>
+      <if test="commAddress != null" >
+        #{commAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="commDesc != null" >
+        #{commDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flagDelete != null" >
+        #{flagDelete,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qzw.modules.model.apartment.Community" >
+    update community
+    <set >
+      <if test="commName != null" >
+        comm_name = #{commName,jdbcType=VARCHAR},
+      </if>
+      <if test="commAddress != null" >
+        comm_address = #{commAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="commDesc != null" >
+        comm_desc = #{commDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flagDelete != null" >
+        flag_delete = #{flagDelete,jdbcType=BIT},
+      </if>
+    </set>
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qzw.modules.model.apartment.Community" >
+    update community
+    set comm_name = #{commName,jdbcType=VARCHAR},
+      comm_address = #{commAddress,jdbcType=VARCHAR},
+      comm_desc = #{commDesc,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      flag_delete = #{flagDelete,jdbcType=BIT}
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </update>
+</mapper>

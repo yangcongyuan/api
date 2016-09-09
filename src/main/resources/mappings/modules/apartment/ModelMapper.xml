@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.apartment.ModelDao" >
+  <resultMap id="BaseResultMap" type="com.qzw.modules.model.apartment.Model" >
+    <id column="model_id" property="modelId" jdbcType="INTEGER" />
+    <result column="model_name" property="modelName" jdbcType="VARCHAR" />
+    <result column="model_pic1" property="modelPic1" jdbcType="VARCHAR" />
+    <result column="model_pic2" property="modelPic2" jdbcType="VARCHAR" />
+    <result column="model_pic3" property="modelPic3" jdbcType="VARCHAR" />
+    <result column="model_pic4" property="modelPic4" jdbcType="VARCHAR" />
+    <result column="model_pic5" property="modelPic5" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="flag_delete" property="flagDelete" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    model_id, model_name, model_pic1, model_pic2, model_pic3, model_pic4, model_pic5, 
+    create_time, flag_delete
+  </sql>
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from model
+    where model_id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from model
+    where model_id = #{modelId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qzw.modules.model.apartment.Model" >
+    insert into model (model_id, model_name, model_pic1, 
+      model_pic2, model_pic3, model_pic4, 
+      model_pic5, create_time, flag_delete
+      )
+    values (#{modelId,jdbcType=INTEGER}, #{modelName,jdbcType=VARCHAR}, #{modelPic1,jdbcType=VARCHAR}, 
+      #{modelPic2,jdbcType=VARCHAR}, #{modelPic3,jdbcType=VARCHAR}, #{modelPic4,jdbcType=VARCHAR}, 
+      #{modelPic5,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{flagDelete,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qzw.modules.model.apartment.Model" >
+    insert into model
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="modelId != null" >
+        model_id,
+      </if>
+      <if test="modelName != null" >
+        model_name,
+      </if>
+      <if test="modelPic1 != null" >
+        model_pic1,
+      </if>
+      <if test="modelPic2 != null" >
+        model_pic2,
+      </if>
+      <if test="modelPic3 != null" >
+        model_pic3,
+      </if>
+      <if test="modelPic4 != null" >
+        model_pic4,
+      </if>
+      <if test="modelPic5 != null" >
+        model_pic5,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="flagDelete != null" >
+        flag_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="modelId != null" >
+        #{modelId,jdbcType=INTEGER},
+      </if>
+      <if test="modelName != null" >
+        #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPic1 != null" >
+        #{modelPic1,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPic2 != null" >
+        #{modelPic2,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPic3 != null" >
+        #{modelPic3,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPic4 != null" >
+        #{modelPic4,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPic5 != null" >
+        #{modelPic5,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flagDelete != null" >
+        #{flagDelete,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qzw.modules.model.apartment.Model" >
+    update model
+    <set >
+      <if test="modelName != null" >
+        model_name = #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPic1 != null" >
+        model_pic1 = #{modelPic1,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPic2 != null" >
+        model_pic2 = #{modelPic2,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPic3 != null" >
+        model_pic3 = #{modelPic3,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPic4 != null" >
+        model_pic4 = #{modelPic4,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPic5 != null" >
+        model_pic5 = #{modelPic5,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flagDelete != null" >
+        flag_delete = #{flagDelete,jdbcType=BIT},
+      </if>
+    </set>
+    where model_id = #{modelId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qzw.modules.model.apartment.Model" >
+    update model
+    set model_name = #{modelName,jdbcType=VARCHAR},
+      model_pic1 = #{modelPic1,jdbcType=VARCHAR},
+      model_pic2 = #{modelPic2,jdbcType=VARCHAR},
+      model_pic3 = #{modelPic3,jdbcType=VARCHAR},
+      model_pic4 = #{modelPic4,jdbcType=VARCHAR},
+      model_pic5 = #{modelPic5,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      flag_delete = #{flagDelete,jdbcType=BIT}
+    where model_id = #{modelId,jdbcType=INTEGER}
+  </update>
+</mapper>

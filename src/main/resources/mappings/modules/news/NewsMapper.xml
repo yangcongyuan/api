@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qzw.modules.dao.news.NewsDao" >
+  <resultMap id="BaseResultMap" type="com.qzw.modules.model.news.News" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="publish" property="publish" jdbcType="BIT" />
+    <result column="publish_date" property="publishDate" jdbcType="TIMESTAMP" />
+    <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP"/>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.qzw.modules.model.news.News" extends="BaseResultMap" >
+    <result column="detail" property="detail" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, publish, publish_date,info
+  </sql>
+  <sql id="Blob_Column_List" >
+    detail
+  </sql>
+
+
+  <select id="newsList" parameterType="com.qzw.modules.webservice.news.vo.NewsRequestVo" resultType="com.qzw.modules.webservice.news.vo.NewsResponseVo">
+      SELECT id, title, publish, publish_date,detail,info
+      FROM news
+      WHERE publish=1
+      ORDER BY publish_date DESC
+      limit #{currentPage,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}
+  </select>
+  <select id="countNews" parameterType="com.qzw.modules.webservice.news.vo.NewsRequestVo" resultType="java.lang.Long">
+    SELECT COUNT(*)
+    FROM news
+    WHERE publish=1
+  </select>
+
+  <select id="selectId" parameterType="com.qzw.modules.webservice.news.vo.NewsRequestVo" resultType="com.qzw.modules.webservice.news.vo.NewsResponseVo">
+    SELECT id,info, title,detail
+    FROM news
+    WHERE ID=#{id,jdbcType=INTEGER}
+  </select>
+</mapper>
